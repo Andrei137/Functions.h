@@ -1,16 +1,15 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-#include <iostream>
-#include <fstream>
-#include <iomanip>
-#include <vector>
+#include <algorithm>
+#include <conio.h>
 #include <cstring>
 #include <ctime>
-#include <cstring>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <vector>
 #include <windows.h>
-#include <conio.h>
-
 
 class generalPurpose_ALGO
 {
@@ -1416,13 +1415,12 @@ class bitOperations_ALGO
         }
 };
 
-
 class benchmark_ALGO
 {
     private :
         #define limit (int)1e5
-        #define bm(x) benchmarch(x, #x)
     public :
+        #define bm(x) benchmarch(x, #x)
         void benchmarch(void (*f)(), const char *name)
         {
             std::cout << "Running " << name << '\n';
@@ -1433,14 +1431,13 @@ class benchmark_ALGO
         }
 
         template <typename arr> inline
-        void fillWithRandomNumbers(arr &array, int size)
+        void fillWithRandomNumbers(int arrayLength, arr &array)
         {
             srand(time(NULL));
             int left = limit, right = limit;
-            for (int i = 0; i < size; ++i)
+            for (int i = 0; i < arrayLength; ++i)
                 array[i] = rand() % (left + right + 1) - rand() % left;
         }
 };
-
 
 #endif
